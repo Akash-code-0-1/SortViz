@@ -1,0 +1,123 @@
+:root {
+    --sorting_algorithm_header_color: #333;
+
+}
+
+[data-theme="dark"] {
+    --sorting_algorithm_header_color: white;
+}
+
+.bucket-sort-visualization {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.bucket-sort-visualization h3 {
+    color: var(--sorting_algorithm_header_color);
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.explanation {
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 5px;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: fit-content;
+    width: 100%;
+}
+.bucket-sort-visualization .explanation p{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.user_controls {
+    display: flex;
+    justify-content: center;
+}
+
+.user_controls button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.user_controls button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+}
+
+.user_controls button:hover:not(:disabled) {
+    background-color: #2980b9;
+}
+
+.array-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 500px;
+    width: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    margin: 20px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.array-bar {
+    margin: 0 1px;
+    background-color: #3498db;
+    transition: height 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: rgb(0, 0, 0);
+    font-size: clamp(0px, 1vw, 10px);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.array-bar p {
+    display: flex;
+    position: relative;
+    top: 10px;
+}
+
+.array-bar.sorted {
+    background-color: #2ecc71;
+}
+
+.array-bar.active {
+    background-color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+    .bucket-sort-visualization h3 {
+        font-size: 18px;
+    }
+
+    .array-container {
+        height: 300px;
+        padding: 5px;
+    }
+
+    .array-bar {
+        font-size: 8px;
+        margin: 0 0.5px;
+    }
+}

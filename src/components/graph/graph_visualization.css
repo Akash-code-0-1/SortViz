@@ -1,0 +1,203 @@
+:root {
+    --background: #ffffff;
+    --text-primary: #000;
+    --button-bg: #2563EB;
+    --button-text: #ffffff;
+    --nav-bg: #2563EB;
+    --nav-text: #ffffff;
+    --responsive-menuitem-bg: #2563EB;
+    --home-page-bg: #ffffff;
+    --welcome-section-bg: #2563EB;
+    --welcome-section-button-bg: white;
+    --welcome-section-button-text: #2563EB;
+    --welcome-section-h3-color: black;
+    --slider-button-bg: black;
+    --slider-button-text: white;
+    --slider-button-click-color: black;
+    --footer_bg: #19293F;
+    --footer_text_color: #9CA3AF;
+    --navbar_hover_color: #0047e0;
+    --graph_action_h3_color: Black;
+    --controls_bg_color: #ebebeb;
+    --controler_btn-color: #2563EB;
+    --controler_btn-textcolor: black;
+    --path_btn_bgc: #2563EB;
+    --path_btn_text_color: white;
+    --path_btn_text_color_click: black;
+}
+
+[data-theme="dark"] {
+    --background: #19293F;
+    --text-primary: #fff;
+    --button-bg: #2563EB;
+    --button-text: #ffffff;
+    --nav-bg: #19293F;
+    --responsive-menuitem-bg: #19293F;
+    --home-page-bg: #19293F;
+    --welcome-section-bg: #19293F;
+    --welcome-section-button-bg: #FF4C29;
+    --welcome-section-button-text: #ffffff;
+    --welcome-section-h3-color: #B0B0B0;
+    --slider-button-bg: white;
+    --slider-button-text: black;
+    --slider-button-click-color: white;
+    --footer_bg: #FF4C29;
+    --footer_text_color: black;
+    --navbar_hover_color: #0f1d31;
+    --graph_action_h3_color: white;
+    --controls_bg_color: #19293F;
+    --controler_btn-color: #FF4C29;
+    --path_btn_bgc: #FF4C29;
+    --path_btn_text_color: white;
+    --path_btn_text_color_click: black;
+}
+
+/* Graph CSS */
+.graph {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: var(--home-page-bg);
+    color: var(--footer_text_color);
+}
+
+.graph .welcome_section {
+    margin-top: 50px;
+}
+
+.graph .welcome_section .graph_algorithms {
+    width: 100%;
+    padding: 0px 0px 10px 10px;
+    text-align: center;
+}
+
+.graph .welcome_section .graph_algorithms button {
+    position: relative;
+    margin-top: 10px;
+    max-width: 200px;
+    margin-inline-end: 5px;
+    display: flexbox;
+    align-items: center;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.graph .welcome_section .graph_algorithms button:hover {
+    background-color: rgb(51, 255, 11);
+    color: black;
+    font-weight: bold;
+}
+
+.graph .graph_action {
+    display: block;
+    text-align: center;
+    justify-content: center;
+}
+
+.graph .controls h3 {
+    padding: 20px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    color: var(--graph_action_h3_color);
+}
+
+.graph .controls .final_action {
+    width: 150px;
+    font-weight: bolder;
+    font-size: 19px;
+    color: var(--path_btn_text_color);
+}
+
+.graph .graph_action .controls {
+    display: block;
+    position: relative;
+    background-color: var(--controls_bg_color);
+}
+
+.graph .graph_action .controls .range_input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.graph .graph_action .controls .range_input label {
+    color: var(--graph_action_h3_color);
+    font-size: 17px;
+    font-weight: bolder;
+    padding: 10px;
+}
+
+.graph .graph_action .controls .range_input p {
+    color: var(--graph_action_h3_color);
+    font-size: 17px;
+    font-weight: bolder;
+    margin-left: 10px;
+}
+
+.graph .graph_action .controls .node_inputs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.graph .graph_action .controls .node_inputs input {
+    padding: 10px;
+    height: 40px;
+    width: 150px;
+    border-radius: 30px;
+    border: none;
+}
+
+.graph .graph_action .controls .node_inputs input::placeholder {
+    font-weight:100;
+}
+
+.graph .graph_action .controls .control_buttons {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+
+.graph .graph_action .controls .control_buttons button {
+    max-width: 180px;
+    background-color: white;
+    color: black;
+    border: none;
+    box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+.graph .graph_action .controls .control_buttons button:hover {
+    background-color: rgb(51, 255, 11);
+    color: black;
+    font-weight: bold;
+}
+
+input[type="range"] {
+    max-width: 350px;
+    min-width: 40px;
+}
+
+.graph .graph_action .controls .input_numbers input {
+    margin-top: 20px;
+    padding: 20px;
+    height: 50px;
+    width: 50%;
+    border-radius: 30px;
+    border: none;
+}
+
+.graph .graph_action .controls .input_numbers input::placeholder {
+    font-weight: bold;
+    left: 10px;
+}
+
+@media (max-width: 700px) {
+    .graph .graph_action .controls .range_input {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+}

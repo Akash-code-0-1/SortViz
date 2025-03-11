@@ -1,0 +1,204 @@
+:root {
+    --background: #ffffff;
+    --text-primary: #000;
+    --welcome-text-color: white;
+    --text-for-p: black;
+    --button-bg: #2563EB;
+    --button-text: #ffffff;
+    --nav-bg: #2563EB;
+    --nav-text: #ffffff;
+    --responsive-menuitem-bg: #2563EB;
+    --home-page-bg: #ffffff;
+    --welcome-section-bg: #2563EB;
+    --welcome-section-button-bg: white;
+    --welcome-section-button-text: #2563EB;
+    --welcome-section-h3-color: black;
+    --slider-button-bg: black;
+    --slider-button-text: white;
+    --slider-button-click-color: black;
+    --footer_bg: #19293F;
+    --footer_text_color: #9CA3AF;
+    --navbar_hover_color: #0047e0;
+    --sorting_action_h3_color: Black;
+    --controls_bg_color: #ebebeb;
+    --controler_btn-color: #2563EB;
+    --controler_btn-textcolor: black;
+    --sort_btn_bgc: #2563EB;
+    --sort_btn_text_color: white;
+    --sort_btn_text_color_click: black;
+}
+
+[data-theme="dark"] {
+    --background: #19293F;
+    --text-primary: #fff;
+    --welcome-text-color: #2563EB;
+    --text-for-p: rgb(220, 220, 220);
+    --button-bg: #2563EB;
+    --button-text: #ffffff;
+    --nav-bg: #19293F;
+    --responsive-menuitem-bg: #19293F;
+    --home-page-bg: #19293F;
+    --welcome-section-bg: #19293F;
+    --welcome-section-button-bg: #FF4C29;
+    --welcome-section-button-text: #ffffff;
+    --welcome-section-h3-color: #B0B0B0;
+    --slider-button-bg: white;
+    --slider-button-text: black;
+    --slider-button-click-color: white;
+    --footer_bg: #FF4C29;
+    --footer_text_color: black;
+    --navbar_hover_color: #0f1d31;
+    --sorting_action_h3_color: white;
+    --controls_bg_color: #19293F;
+    --controler_btn-color: #FF4C29;
+    --sort_btn_bgc: #FF4C29;
+    --sort_btn_text_color: white;
+    --sort_btn_text_color_click: black;
+}
+
+
+/* Sorting Css */
+.sorting {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: var(--home-page-bg);
+    color: var(--footer_text_color);
+}
+
+.sorting .welcome_section {
+    margin-top: 50px;
+}
+
+.sorting .welcome_section h1 {
+    color: white;
+}
+
+.sorting .welcome_section h4 {
+    color: var(--sorting_action_h3_color);
+    margin-bottom: 30px;
+}
+
+
+.sorting .welcome_section .sorting_algorithms {
+    width: 100%;
+    padding: 0px 0px 10px 10px;
+    text-align: center;
+}
+
+.sorting .welcome_section .sorting_algorithms button {
+    position: relative;
+    margin-top: 10px;
+    max-width: 200px;
+    margin-inline-end: 5px;
+    display: flexbox;
+    align-items: center;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+    /* Deeper inner shadow */
+
+
+}
+
+.sorting .welcome_section .sorting_algorithms button:hover {
+    background-color: rgb(51, 255, 11);
+    color: black;
+    font-weight: bold;
+}
+
+.sorting .sorting_action {
+    display: block;
+    text-align: center;
+    justify-content: center;
+}
+
+.sorting .controls h3 {
+    padding: 20px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    color: var(--sorting_action_h3_color);
+}
+
+.sorting .controls .final_action {
+    width: 150px;
+    font-weight: bolder;
+    font-size: 19px;
+    color: var(--sort_btn_text_color);
+}
+
+.sorting .sorting_action .controls {
+    display: block;
+    position: relative;
+    background-color: var(--controls_bg_color);
+}
+
+.sorting .sorting_action .controls .range_input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.sorting .sorting_action .controls .range_input label {
+    color: var(--sorting_action_h3_color);
+    font-size: 17px;
+    font-weight: bolder;
+    padding: 10px;
+}
+
+.sorting .sorting_action .controls .range_input p {
+    color: var(--sorting_action_h3_color);
+    font-size: 17px;
+    font-weight: bolder;
+    margin-left: 10px;
+}
+
+.sorting .sorting_action .controls .sorting_type {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+
+
+.sorting .sorting_action .controls .sorting_type button {
+    max-width: 180px;
+    min-width: none;
+    background-color: white;
+    color: black;
+    border: none;
+    box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+.sorting .sorting_action .controls .sorting_type button:hover {
+    background-color: rgb(51, 255, 11);
+    color: black;
+    font-weight: bold;
+}
+
+.sorting .sorting_action .controls .sorting_type .btn {
+    margin-left: 50px;
+}
+
+
+
+
+input[type="range"] {
+    max-width: 350px;
+    min-width: 40px;
+}
+
+.sorting .sorting_action .controls .input_numbers input {
+    margin-top: 20px;
+    padding: 20px;
+    height: 50px;
+    width: 50%;
+    border-radius: 30px;
+    border: none;
+}
+
+.sorting .sorting_action .controls .input_numbers input::placeholder {
+    font-weight: bold;
+    left: 10px;
+}

@@ -1,0 +1,66 @@
+:root {
+  --background: #ffffff;
+  --text-primary: #000;
+  --button-bg: #2563EB;
+  --button-text: #ffffff;
+  --nav-bg: #2563EB;
+  --nav-text: #ffffff;
+  --responsive-menuitem-bg: #2563EB;
+  --home-page-bg: #ffffff;
+  --welcome-section-bg: #2563EB;
+  --welcome-section-button-bg: white;
+  --welcome-section-button-text: #2563EB;
+  --welcome-section-h3-color: black;
+  --slider-button-bg: black;
+  --slider-button-text: white;
+  --slider-button-click-color: black;
+  --footer_bg: #19293F;
+  --footer_text_color: #9CA3AF;
+  --navbar_hover_color: #0047e0;
+}
+
+[data-theme="dark"] {
+  --background: #19293F;
+  --text-primary: #fff;
+  --button-bg: #2563EB;
+  --button-text: #ffffff;
+  --nav-bg: #19293F;
+  --responsive-menuitem-bg: #19293F;
+  --home-page-bg: #19293F;
+  --welcome-section-bg: #19293F;
+  --welcome-section-button-bg: #FF4C29;
+  --welcome-section-button-text: #ffffff;
+  --welcome-section-h3-color: #B0B0B0;
+  --slider-button-bg: white;
+  --slider-button-text: black;
+  --slider-button-click-color: white;
+  --footer_bg: gray;
+  --footer_text_color: black;
+  --navbar_hover_color: #0f1d31;
+}
+
+/* footer css */
+.footer {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--button-bg);
+}
+
+.footer .social_icons {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.footer .social_icons a {
+  color: white;
+  margin-inline-start: 5px;
+  cursor: pointer;
+}
+
+.footer .social_icons p {
+  margin-top: 5px;
+  color: whitesmoke;
+  text-align: center;
+}
