@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './InsertionSort.css';
+import './sortContent.css';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import PauseIcon from '@mui/icons-material/Pause';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -144,6 +145,139 @@ export default function InsertionSort({ numbers, speed, range }) {
     // Calculate dynamic width for each bar
     const barWidth = `${Math.min(100 / arr.length, 100 / 10)}%`;
 
+
+    const sourceCode = {
+        cpp: `
+    #include <iostream>
+    using namespace std;
+    
+    void insertionSort(int array[], int n) {
+        for (int i = 1; i < n; i++) {
+            int key = array[i];
+            int j = i - 1;
+            while (j >= 0 && array[j] > key) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = key;
+        }
+    }
+    
+    int main() {
+        int n;
+        cout << "Enter the array size: ";
+        cin >> n;
+        int array[n];
+    
+        cout << "Enter the array elements: " << endl;
+        for (int i = 0; i < n; i++) {
+            cin >> array[i];
+        }
+    
+        insertionSort(array, n);
+    
+        cout << "Your Insertion sorted Array is: " << endl;
+        for (int i = 0; i < n; i++) {
+            cout << array[i] << endl;
+        }
+    }
+        `,
+        java: `
+    import java.util.Scanner;
+    
+    public class InsertionSort {
+        public static void insertionSort(int[] array, int n) {
+            for (int i = 1; i < n; i++) {
+                int key = array[i];
+                int j = i - 1;
+                while (j >= 0 && array[j] > key) {
+                    array[j + 1] = array[j];
+                    j--;
+                }
+                array[j + 1] = key;
+            }
+        }
+    
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+    
+            System.out.print("Enter the array size: ");
+            int n = scanner.nextInt();
+            int[] array = new int[n];
+    
+            System.out.println("Enter the array elements:");
+            for (int i = 0; i < n; i++) {
+                array[i] = scanner.nextInt();
+            }
+    
+            insertionSort(array, n);
+    
+            System.out.println("Your Insertion sorted Array is:");
+            for (int i = 0; i < n; i++) {
+                System.out.println(array[i]);
+            }
+        }
+    }
+        `,
+        python: `
+    def insertion_sort(array):
+        n = len(array)
+        for i in range(1, n):
+            key = array[i]
+            j = i - 1
+            while j >= 0 and array[j] > key:
+                array[j + 1] = array[j]
+                j -= 1
+            array[j + 1] = key
+    
+    if __name__ == "__main__":
+        n = int(input("Enter the array size: "))
+        array = [int(input(f"Enter element {i + 1}: ")) for i in range(n)]
+    
+        insertion_sort(array)
+        print("Your Insertion sorted Array is:")
+        print(array)
+        `,
+        javaScript: `
+    function insertionSort(array) {
+        const n = array.length;
+        for (let i = 1; i < n; i++) {
+            let key = array[i];
+            let j = i - 1;
+            while (j >= 0 && array[j] > key) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = key;
+        }
+        return array;
+    }
+    
+    const array = [];
+    const n = parseInt(prompt("Enter the array size: "));
+    for (let i = 0; i < n; i++) {
+        array.push(parseInt(prompt(\`Enter element \${i + 1}: \`)));
+    }
+    
+    console.log("Your Insertion sorted Array is:");
+    console.log(insertionSort(array));
+        `
+    };
+    const [activeTab, setActiveTab] = useState("cpp"); // Tracks the active tab
+    const [copied, setCopied] = useState(false); // Tracks copy status
+
+    // Copy code to clipboard
+    const handleCopy = () => {
+        navigator.clipboard.writeText(sourceCode[activeTab].trim());
+        setCopied(true);
+
+        // Reset the "Copied" state after 5 seconds
+        setTimeout(() => {
+            setCopied(false);
+        }, 5000);
+    };
+    
+
     return (
         <div className="insertion-sort-visualization">
             <h3>Insertion Sort Visualization</h3>
@@ -184,6 +318,85 @@ export default function InsertionSort({ numbers, speed, range }) {
                         <p>{arr[index]}</p>
                     </div>
                 ))}
+            </div>
+
+            <div className="source_code">
+                {/* Tabs for language selection */}
+                <div className="tabs">
+                    <button
+                        onClick={() => setActiveTab("cpp")}
+                        style={{
+                            backgroundColor: activeTab === "cpp" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "cpp" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        C++
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("java")}
+                        style={{
+                            backgroundColor: activeTab === "java" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "java" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        Java
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("python")}
+                        style={{
+                            backgroundColor: activeTab === "python" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "python" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        Python
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("javaScript")}
+                        style={{
+                            backgroundColor: activeTab === "javaScript" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "javaScript" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        JavaScript
+                    </button>
+
+                    <button
+                        className={`copybutton ${copied ? "copied" : ""}`}
+                        onClick={handleCopy}
+                        style={{
+                            backgroundColor: copied ? "rgb(51, 255, 11)" : "blue",
+                            color: copied ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer"
+                        }}
+                    >
+                        {copied ? "Copied!" : "Copy"}
+                    </button>
+                </div>
+
+                {/* Source code display */}
+                <pre>
+                    <code>{sourceCode[activeTab]}</code>
+                </pre>
+
+
             </div>
         </div>
     );

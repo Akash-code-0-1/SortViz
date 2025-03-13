@@ -1,0 +1,167 @@
+:root {
+    --sorting_algorithm_header_color: #333;
+    --fontSubtitle: black;
+    --fontSoft: rgb(42, 39, 39);
+    --background: white;
+
+}
+
+[data-theme="dark"] {
+    --sorting_algorithm_header_color: white;
+    --fontSubtitle: white;
+    --fontSoft: rgb(223, 223, 223);
+    --background: #19293F;
+}
+
+
+/* Global Sorting Visualization Styles */
+.sorting-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 100%;
+    text-align: left;
+}
+
+/* Headings */
+.sorting-content h2 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+    color: blue;
+    margin-bottom: 20px;
+}
+
+.sorting-content h3 {
+    display: flex;
+    color: var(--fontSubtitle);
+}
+
+/* Paragraphs */
+.sorting-content p {
+    font-size: 16px;
+    color: var(--fontSoft);
+    margin-bottom: 10px;
+}
+
+/* Ordered List */
+.sorting-content ol {
+    padding: 10px 0px;
+}
+
+.sorting-content li {
+    font-size: 16px;
+    color: var(--fontSoft);
+    margin-bottom: 10px;
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+
+/* Subcontent Styles */
+.sorting-content .subcontent {
+    padding: 10px 0px;
+}
+
+.sorting-content .subcontent li {
+    font-size: 18px;
+    color: var(--fontSoft);
+    margin-bottom: 10px;
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+
+/* Styling for Sorting Bars (if applicable) */
+.sorting-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 300px;
+    gap: 5px;
+}
+
+.sorting-bar {
+    width: 30px;
+    background-color: steelblue;
+    transition: height 0.3s ease-in-out;
+}
+
+/* Highlighting Bars During Swaps */
+.sorting-bar.active {
+    background-color: red;
+}
+
+/* Highlighting the Minimum Element */
+.sorting-bar.min {
+    background-color: green;
+}
+
+
+
+/* clipboard */
+
+.source_code {
+    position: relative;
+    background: var(--background);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 600px;
+    width: 100%;
+
+}
+
+
+
+
+.source_code .tabs {
+    display: flex;
+    align-items: left;
+}
+
+.source_code .tabs button {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.source_code .tabs .cpp {
+    text-align: center;
+}
+
+/*  */
+
+.source_code pre {
+    margin: 0;
+    padding: 15px;
+    background: rgb(6, 3, 3);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: scroll;
+    height: 600px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.source_code pre::-webkit-scrollbar {
+    display: none;
+}
+
+.source_code .copybutton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    right: 0;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}

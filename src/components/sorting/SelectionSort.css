@@ -104,7 +104,7 @@
 
 
 
-.selection-sort-visualization .selection_Sort_content {
+/* .selection-sort-visualization .selection_Sort_content {
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -193,7 +193,7 @@
 
 /*  */
 
-.selection-sort-visualization .source_code pre {
+/* .selection-sort-visualization .source_code pre {
     margin: 0;
     padding: 15px;
     background: rgb(6, 3, 3);
@@ -223,7 +223,7 @@
     border-radius: 5px;
     padding: 10px;
     color: white;
-}
+} */
 
 
 

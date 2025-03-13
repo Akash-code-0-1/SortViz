@@ -156,11 +156,6 @@ export default function BubbleSort({ numbers, speed, range }) {
 
 
 
-
-
-    // Source code for different languages
-    const [activeTab, setActiveTab] = useState("cpp"); // Tracks the active tab
-    const [copied, setCopied] = useState(false); // Tracks copy status
     const sourceCode = {
         cpp: `
   #include <iostream>
@@ -291,6 +286,10 @@ export default function BubbleSort({ numbers, speed, range }) {
       `
 
     };
+
+    // Source code for different languages
+    const [activeTab, setActiveTab] = useState("cpp"); // Tracks the active tab
+    const [copied, setCopied] = useState(false); // Tracks copy status
 
     // Copy code to clipboard
     const handleCopy = () => {
@@ -449,10 +448,36 @@ export default function BubbleSort({ numbers, speed, range }) {
                 <p>
                     For a list [5, 3, 8, 4, 2]:
                 </p>
-                <ol >
-                    <li>First pass: Swap 5 and 3 ➔ Swap 8 and 4 ➔ Swap 8 and 2</li>
-                    <li>Next passes: Continue until the list becomes [2, 3, 4, 5, 8]</li>
+                <ol>
+                    <li>First pass:
+                        <ul>
+                            <li>Compare 5 and 3 ➔ Swap (3, 5) → [3, 5, 8, 4, 2]</li>
+                            <li>Compare 5 and 8 ➔ No swap → [3, 5, 8, 4, 2]</li>
+                            <li>Compare 8 and 4 ➔ Swap (4, 8) → [3, 5, 4, 8, 2]</li>
+                            <li>Compare 8 and 2 ➔ Swap (2, 8) → [3, 5, 4, 2, 8]</li>
+                        </ul>
+                    </li>
+                    <li>Second pass:
+                        <ul>
+                            <li>Compare 3 and 5 ➔ No swap → [3, 5, 4, 2, 8]</li>
+                            <li>Compare 5 and 4 ➔ Swap (4, 5) → [3, 4, 5, 2, 8]</li>
+                            <li>Compare 5 and 2 ➔ Swap (2, 5) → [3, 4, 2, 5, 8]</li>
+                        </ul>
+                    </li>
+                    <li>Third pass:
+                        <ul>
+                            <li>Compare 3 and 4 ➔ No swap → [3, 4, 2, 5, 8]</li>
+                            <li>Compare 4 and 2 ➔ Swap (2, 4) → [3, 2, 4, 5, 8]</li>
+                        </ul>
+                    </li>
+                    <li>Fourth pass:
+                        <ul>
+                            <li>Compare 3 and 2 ➔ Swap (2, 3) → [2, 3, 4, 5, 8]</li>
+                        </ul>
+                    </li>
+                    <li>Final sorted list: [2, 3, 4, 5, 8]</li>
                 </ol>
+
 
                 <h3>Time Complexity:</h3>
                 <ol >

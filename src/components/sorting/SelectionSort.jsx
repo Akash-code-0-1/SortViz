@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './SelectionSort.css';
+import './sortContent.css';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import PauseIcon from '@mui/icons-material/Pause';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -347,25 +348,53 @@ export default function SelectionSort({ numbers, speed, range }) {
                 <div className="tabs">
                     <button
                         onClick={() => setActiveTab("cpp")}
-                        className={activeTab === "cpp" ? "active" : ""}
+                        style={{
+                            backgroundColor: activeTab === "cpp" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "cpp" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
                     >
                         C++
                     </button>
                     <button
                         onClick={() => setActiveTab("java")}
-                        className={activeTab === "java" ? "active" : ""}
+                        style={{
+                            backgroundColor: activeTab === "java" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "java" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
                     >
                         Java
                     </button>
                     <button
                         onClick={() => setActiveTab("python")}
-                        className={activeTab === "python" ? "active" : ""}
+                        style={{
+                            backgroundColor: activeTab === "python" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "python" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
                     >
                         Python
                     </button>
                     <button
                         onClick={() => setActiveTab("javaScript")}
-                        className={activeTab === "javaScript" ? "active" : ""}
+                        style={{
+                            backgroundColor: activeTab === "javaScript" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "javaScript" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
                     >
                         JavaScript
                     </button>
@@ -373,11 +402,16 @@ export default function SelectionSort({ numbers, speed, range }) {
                     <button
                         className={`copybutton ${copied ? "copied" : ""}`}
                         onClick={handleCopy}
+                        style={{
+                            backgroundColor: copied ? "rgb(51, 255, 11)" : "blue",
+                            color: copied ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer"
+                        }}
                     >
                         {copied ? "Copied!" : "Copy"}
                     </button>
-
-
                 </div>
 
                 {/* Source code display */}
@@ -389,7 +423,7 @@ export default function SelectionSort({ numbers, speed, range }) {
             </div>
 
 
-            <div className="selection_Sort_content">
+            <div className="sorting-content">
                 <h2>Selection Sort Algorithm</h2>
 
                 <h3>How it Works:</h3>
@@ -410,11 +444,37 @@ export default function SelectionSort({ numbers, speed, range }) {
                     For a list [5, 3, 8, 4, 2]:
                 </p>
                 <ol>
-                    <li>First pass: Find 2 ➔ Swap with 5 ➔ List becomes [2, 3, 8, 4, 5]</li>
-                    <li>Second pass: Find 3 ➔ Already in place ➔ List remains [2, 3, 8, 4, 5]</li>
-                    <li>Third pass: Find 4 ➔ Swap with 8 ➔ List becomes [2, 3, 4, 8, 5]</li>
-                    <li>Fourth pass: Find 5 ➔ Swap with 8 ➔ List becomes [2, 3, 4, 5, 8]</li>
+                    <li>First pass (i = 0):
+                        <ul>
+                            <li>Find the smallest element in [5, 3, 8, 4, 2]</li>
+                            <li>Minimum value is 2 at index 4</li>
+                            <li>Swap 5 and 2 → [2, 3, 8, 4, 5]</li>
+                        </ul>
+                    </li>
+                    <li>Second pass (i = 1):
+                        <ul>
+                            <li>Find the smallest element in [3, 8, 4, 5]</li>
+                            <li>Minimum value is 3 at index 1</li>
+                            <li>No swap needed → [2, 3, 8, 4, 5]</li>
+                        </ul>
+                    </li>
+                    <li>Third pass (i = 2):
+                        <ul>
+                            <li>Find the smallest element in [8, 4, 5]</li>
+                            <li>Minimum value is 4 at index 3</li>
+                            <li>Swap 8 and 4 → [2, 3, 4, 8, 5]</li>
+                        </ul>
+                    </li>
+                    <li>Fourth pass (i = 3):
+                        <ul>
+                            <li>Find the smallest element in [8, 5]</li>
+                            <li>Minimum value is 5 at index 4</li>
+                            <li>Swap 8 and 5 → [2, 3, 4, 5, 8]</li>
+                        </ul>
+                    </li>
+                    <li>Final sorted list: [2, 3, 4, 5, 8]</li>
                 </ol>
+
 
                 <h3>Time Complexity:</h3>
                 <ol>

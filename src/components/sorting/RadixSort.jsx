@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './RadixSort.css';
+import './sortContent.css';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import PauseIcon from '@mui/icons-material/Pause';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -50,7 +51,7 @@ export default function RadixSort({ numbers, speed, range }) {
     const radixSortSteps = (arr) => {
         const steps = [];
         const getMax = (array) => Math.max(...array);
-        
+
         // Counting sort function used as a subroutine
         const countingSort = (array, exp) => {
             const n = array.length;
@@ -82,7 +83,7 @@ export default function RadixSort({ numbers, speed, range }) {
             for (let i = 0; i < n; i++) {
                 array[i] = output[i];
             }
-            
+
             // Record the current state of the array for visualization
             steps.push({ array: [...array], highlights: [] });
         };
@@ -174,6 +175,214 @@ export default function RadixSort({ numbers, speed, range }) {
     // Calculate dynamic width for each bar
     const barWidth = `${Math.min(100 / arr.length, 100 / 10)}%`;
 
+    const sourceCode = {
+        cpp: `
+    #include <iostream>
+    #include <vector>
+    #include <algorithm>
+    using namespace std;
+    
+    void countingSortForRadix(int array[], int n, int exp) {
+        int output[n];
+        int count[10] = {0};
+    
+        for (int i = 0; i < n; i++) {
+            count[(array[i] / exp) % 10]++;
+        }
+    
+        for (int i = 1; i < 10; i++) {
+            count[i] += count[i - 1];
+        }
+    
+        for (int i = n - 1; i >= 0; i--) {
+            output[count[(array[i] / exp) % 10] - 1] = array[i];
+            count[(array[i] / exp) % 10]--;
+        }
+    
+        for (int i = 0; i < n; i++) {
+            array[i] = output[i];
+        }
+    }
+    
+    void radixSort(int array[], int n) {
+        int maxElement = *max_element(array, array + n);
+    
+        for (int exp = 1; maxElement / exp > 0; exp *= 10) {
+            countingSortForRadix(array, n, exp);
+        }
+    }
+    
+    int main() {
+        int n;
+        cout << "Enter the array size: ";
+        cin >> n;
+        int array[n];
+    
+        cout << "Enter the array elements: " << endl;
+        for (int i = 0; i < n; i++) {
+            cin >> array[i];
+        }
+    
+        radixSort(array, n);
+    
+        cout << "Your Radix sorted Array is: " << endl;
+        for (int i = 0; i < n; i++) {
+            cout << array[i] << " ";
+        }
+        cout << endl;
+    }
+        `,
+        java: `
+    import java.util.Scanner;
+    import java.util.Arrays;
+    
+    public class RadixSort {
+        public static void countingSortForRadix(int[] array, int n, int exp) {
+            int[] output = new int[n];
+            int[] count = new int[10];
+    
+            for (int i = 0; i < n; i++) {
+                count[(array[i] / exp) % 10]++;
+            }
+    
+            for (int i = 1; i < 10; i++) {
+                count[i] += count[i - 1];
+            }
+    
+            for (int i = n - 1; i >= 0; i--) {
+                output[count[(array[i] / exp) % 10] - 1] = array[i];
+                count[(array[i] / exp) % 10]--;
+            }
+    
+            System.arraycopy(output, 0, array, 0, n);
+        }
+    
+        public static void radixSort(int[] array, int n) {
+            int maxElement = Arrays.stream(array).max().getAsInt();
+    
+            for (int exp = 1; maxElement / exp > 0; exp *= 10) {
+                countingSortForRadix(array, n, exp);
+            }
+        }
+    
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+    
+            System.out.print("Enter the array size: ");
+            int n = scanner.nextInt();
+            int[] array = new int[n];
+    
+            System.out.println("Enter the array elements:");
+            for (int i = 0; i < n; i++) {
+                array[i] = scanner.nextInt();
+            }
+    
+            radixSort(array, n);
+    
+            System.out.println("Your Radix sorted Array is:");
+            for (int num : array) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+    }
+        `,
+        python: `
+    def counting_sort_for_radix(array, exp):
+        n = len(array)
+        output = [0] * n
+        count = [0] * 10
+    
+        for i in range(n):
+            count[(array[i] // exp) % 10] += 1
+    
+        for i in range(1, 10):
+            count[i] += count[i - 1]
+    
+        for i in range(n - 1, -1, -1):
+            output[count[(array[i] // exp) % 10] - 1] = array[i]
+            count[(array[i] // exp) % 10] -= 1
+    
+        for i in range(n):
+            array[i] = output[i]
+    
+    def radix_sort(array):
+        max_element = max(array)
+    
+        exp = 1
+        while max_element // exp > 0:
+            counting_sort_for_radix(array, exp)
+            exp *= 10
+    
+    if __name__ == "__main__":
+        n = int(input("Enter the array size: "))
+        array = [int(input(f"Enter element {i + 1}: ")) for i in range(n)]
+    
+        radix_sort(array)
+        print("Your Radix sorted Array is:")
+        print(" ".join(map(str, array)))
+        `,
+        javaScript: `
+    function countingSortForRadix(array, exp) {
+        const n = array.length;
+        const output = new Array(n);
+        const count = new Array(10).fill(0);
+    
+        for (let i = 0; i < n; i++) {
+            count[Math.floor(array[i] / exp) % 10]++;
+        }
+    
+        for (let i = 1; i < 10; i++) {
+            count[i] += count[i - 1];
+        }
+    
+        for (let i = n - 1; i >= 0; i--) {
+            output[count[Math.floor(array[i] / exp) % 10] - 1] = array[i];
+            count[Math.floor(array[i] / exp) % 10]--;
+        }
+    
+        for (let i = 0; i < n; i++) {
+            array[i] = output[i];
+        }
+    }
+    
+    function radixSort(array) {
+        const maxElement = Math.max(...array);
+        let exp = 1;
+    
+        while (Math.floor(maxElement / exp) > 0) {
+            countingSortForRadix(array, exp);
+            exp *= 10;
+        }
+    }
+    
+    const array = [];
+    const n = parseInt(prompt("Enter the array size: "));
+    for (let i = 0; i < n; i++) {
+        array.push(parseInt(prompt(\`Enter element \${i + 1}: \`)));
+    }
+    
+    radixSort(array);
+    console.log("Your Radix sorted Array is:");
+    console.log(array);
+        `
+    };
+
+    const [activeTab, setActiveTab] = useState("cpp"); // Tracks the active tab
+    const [copied, setCopied] = useState(false); // Tracks copy status
+
+    // Copy code to clipboard
+    const handleCopy = () => {
+        navigator.clipboard.writeText(sourceCode[activeTab].trim());
+        setCopied(true);
+
+        // Reset the "Copied" state after 5 seconds
+        setTimeout(() => {
+            setCopied(false);
+        }, 5000);
+    };
+
+
     return (
         <div className="radix-sort-visualization">
             <h3>Radix Sort Visualization</h3>
@@ -210,6 +419,85 @@ export default function RadixSort({ numbers, speed, range }) {
                         <p>{arr[index]}</p>
                     </div>
                 ))}
+            </div>
+
+            <div className="source_code">
+                {/* Tabs for language selection */}
+                <div className="tabs">
+                    <button
+                        onClick={() => setActiveTab("cpp")}
+                        style={{
+                            backgroundColor: activeTab === "cpp" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "cpp" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        C++
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("java")}
+                        style={{
+                            backgroundColor: activeTab === "java" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "java" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        Java
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("python")}
+                        style={{
+                            backgroundColor: activeTab === "python" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "python" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        Python
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("javaScript")}
+                        style={{
+                            backgroundColor: activeTab === "javaScript" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "javaScript" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        JavaScript
+                    </button>
+
+                    <button
+                        className={`copybutton ${copied ? "copied" : ""}`}
+                        onClick={handleCopy}
+                        style={{
+                            backgroundColor: copied ? "rgb(51, 255, 11)" : "blue",
+                            color: copied ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer"
+                        }}
+                    >
+                        {copied ? "Copied!" : "Copy"}
+                    </button>
+                </div>
+
+                {/* Source code display */}
+                <pre>
+                    <code>{sourceCode[activeTab]}</code>
+                </pre>
+
+
             </div>
         </div>
     );

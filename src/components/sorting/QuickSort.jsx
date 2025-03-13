@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './QuickSort.css';
+import './sortContent.css';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import PauseIcon from '@mui/icons-material/Pause';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -150,6 +151,180 @@ export default function QuickSort({ numbers, speed, range }) {
     // Calculate dynamic width for each bar
     const barWidth = `${Math.min(100 / arr.length, 100 / 10)}%`;
 
+    const sourceCode = {
+        cpp: `
+    #include <iostream>
+    using namespace std;
+    
+    int partition(int array[], int low, int high) {
+        int pivot = array[high];
+        int i = low - 1;
+    
+        for (int j = low; j < high; j++) {
+            if (array[j] < pivot) {
+                i++;
+                swap(array[i], array[j]);
+            }
+        }
+        swap(array[i + 1], array[high]);
+        return i + 1;
+    }
+    
+    void quickSort(int array[], int low, int high) {
+        if (low < high) {
+            int pi = partition(array, low, high);
+            quickSort(array, low, pi - 1);
+            quickSort(array, pi + 1, high);
+        }
+    }
+    
+    int main() {
+        int n;
+        cout << "Enter the array size: ";
+        cin >> n;
+        int array[n];
+    
+        cout << "Enter the array elements: " << endl;
+        for (int i = 0; i < n; i++) {
+            cin >> array[i];
+        }
+    
+        quickSort(array, 0, n - 1);
+    
+        cout << "Your Quick sorted Array is: " << endl;
+        for (int i = 0; i < n; i++) {
+            cout << array[i] << endl;
+        }
+    }
+        `,
+        java: `
+    import java.util.Scanner;
+    
+    public class QuickSort {
+        public static int partition(int[] array, int low, int high) {
+            int pivot = array[high];
+            int i = low - 1;
+            
+            for (int j = low; j < high; j++) {
+                if (array[j] < pivot) {
+                    i++;
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+            int temp = array[i + 1];
+            array[i + 1] = array[high];
+            array[high] = temp;
+            return i + 1;
+        }
+    
+        public static void quickSort(int[] array, int low, int high) {
+            if (low < high) {
+                int pi = partition(array, low, high);
+                quickSort(array, low, pi - 1);
+                quickSort(array, pi + 1, high);
+            }
+        }
+    
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+    
+            System.out.print("Enter the array size: ");
+            int n = scanner.nextInt();
+            int[] array = new int[n];
+    
+            System.out.println("Enter the array elements:");
+            for (int i = 0; i < n; i++) {
+                array[i] = scanner.nextInt();
+            }
+    
+            quickSort(array, 0, n - 1);
+    
+            System.out.println("Your Quick sorted Array is:");
+            for (int i = 0; i < n; i++) {
+                System.out.println(array[i]);
+            }
+        }
+    }
+        `,
+        python: `
+    def partition(array, low, high):
+        pivot = array[high]
+        i = low - 1
+        for j in range(low, high):
+            if array[j] < pivot:
+                i += 1
+                array[i], array[j] = array[j], array[i]
+        array[i + 1], array[high] = array[high], array[i + 1]
+        return i + 1
+    
+    def quick_sort(array, low, high):
+        if low < high:
+            pi = partition(array, low, high)
+            quick_sort(array, low, pi - 1)
+            quick_sort(array, pi + 1, high)
+    
+    if __name__ == "__main__":
+        n = int(input("Enter the array size: "))
+        array = [int(input(f"Enter element {i + 1}: ")) for i in range(n)]
+    
+        quick_sort(array, 0, n - 1)
+        print("Your Quick sorted Array is:")
+        print(array)
+        `,
+        javaScript: `
+    function partition(array, low, high) {
+        let pivot = array[high];
+        let i = low - 1;
+    
+        for (let j = low; j < high; j++) {
+            if (array[j] < pivot) {
+                i++;
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        [array[i + 1], array[high]] = [array[high], array[i + 1]];
+        return i + 1;
+    }
+    
+    function quickSort(array, low, high) {
+        if (low < high) {
+            let pi = partition(array, low, high);
+            quickSort(array, low, pi - 1);
+            quickSort(array, pi + 1, high);
+        }
+    }
+    
+    const array = [];
+    const n = parseInt(prompt("Enter the array size: "));
+    for (let i = 0; i < n; i++) {
+        array.push(parseInt(prompt(\`Enter element \${i + 1}: \`)));
+    }
+    
+    quickSort(array, 0, n - 1);
+    
+    console.log("Your Quick sorted Array is:");
+    console.log(array);
+        `
+    };
+
+    const [activeTab, setActiveTab] = useState("cpp"); // Tracks the active tab
+    const [copied, setCopied] = useState(false); // Tracks copy status
+
+    // Copy code to clipboard
+    const handleCopy = () => {
+        navigator.clipboard.writeText(sourceCode[activeTab].trim());
+        setCopied(true);
+
+        // Reset the "Copied" state after 5 seconds
+        setTimeout(() => {
+            setCopied(false);
+        }, 5000);
+    };
+
+
+
     return (
         <div className="quick-sort-visualization">
             <h3>Quick Sort Visualization</h3>
@@ -186,6 +361,85 @@ export default function QuickSort({ numbers, speed, range }) {
                         <p>{arr[index]}</p>
                     </div>
                 ))}
+            </div>
+
+            <div className="source_code">
+                {/* Tabs for language selection */}
+                <div className="tabs">
+                    <button
+                        onClick={() => setActiveTab("cpp")}
+                        style={{
+                            backgroundColor: activeTab === "cpp" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "cpp" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        C++
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("java")}
+                        style={{
+                            backgroundColor: activeTab === "java" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "java" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        Java
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("python")}
+                        style={{
+                            backgroundColor: activeTab === "python" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "python" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        Python
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("javaScript")}
+                        style={{
+                            backgroundColor: activeTab === "javaScript" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "javaScript" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        JavaScript
+                    </button>
+
+                    <button
+                        className={`copybutton ${copied ? "copied" : ""}`}
+                        onClick={handleCopy}
+                        style={{
+                            backgroundColor: copied ? "rgb(51, 255, 11)" : "blue",
+                            color: copied ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer"
+                        }}
+                    >
+                        {copied ? "Copied!" : "Copy"}
+                    </button>
+                </div>
+
+                {/* Source code display */}
+                <pre>
+                    <code>{sourceCode[activeTab]}</code>
+                </pre>
+
+
             </div>
         </div>
     );

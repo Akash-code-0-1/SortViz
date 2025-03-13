@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './CountingSort.css';
+import './sortContent.css';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import PauseIcon from '@mui/icons-material/Pause';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -178,6 +179,177 @@ export default function CountingSort({ numbers, speed, range }) {
     // Calculate dynamic width for each bar
     const barWidth = `${Math.min(100 / arr.length, 100 / 10)}%`;
 
+
+    const sourceCode = {
+        cpp: `
+    #include <iostream>
+    #include <vector>
+    using namespace std;
+    
+    void countingSort(int array[], int n) {
+        int maxElement = *max_element(array, array + n);
+        vector<int> count(maxElement + 1, 0);
+        vector<int> output(n);
+    
+        for (int i = 0; i < n; i++) {
+            count[array[i]]++;
+        }
+    
+        for (int i = 1; i <= maxElement; i++) {
+            count[i] += count[i - 1];
+        }
+    
+        for (int i = n - 1; i >= 0; i--) {
+            output[count[array[i]] - 1] = array[i];
+            count[array[i]]--;
+        }
+    
+        for (int i = 0; i < n; i++) {
+            array[i] = output[i];
+        }
+    }
+    
+    int main() {
+        int n;
+        cout << "Enter the array size: ";
+        cin >> n;
+        int array[n];
+    
+        cout << "Enter the array elements (non-negative integers): " << endl;
+        for (int i = 0; i < n; i++) {
+            cin >> array[i];
+        }
+    
+        countingSort(array, n);
+    
+        cout << "Your Counting sorted Array is: " << endl;
+        for (int i = 0; i < n; i++) {
+            cout << array[i] << " ";
+        }
+        cout << endl;
+    }
+        `,
+        java: `
+    import java.util.Scanner;
+    import java.util.Arrays;
+    
+    public class CountingSort {
+        public static void countingSort(int[] array, int n) {
+            int maxElement = Arrays.stream(array).max().getAsInt();
+            int[] count = new int[maxElement + 1];
+            int[] output = new int[n];
+    
+            for (int num : array) {
+                count[num]++;
+            }
+    
+            for (int i = 1; i <= maxElement; i++) {
+                count[i] += count[i - 1];
+            }
+    
+            for (int i = n - 1; i >= 0; i--) {
+                output[count[array[i]] - 1] = array[i];
+                count[array[i]]--;
+            }
+    
+            System.arraycopy(output, 0, array, 0, n);
+        }
+    
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+    
+            System.out.print("Enter the array size: ");
+            int n = scanner.nextInt();
+            int[] array = new int[n];
+    
+            System.out.println("Enter the array elements (non-negative integers):");
+            for (int i = 0; i < n; i++) {
+                array[i] = scanner.nextInt();
+            }
+    
+            countingSort(array, n);
+    
+            System.out.println("Your Counting sorted Array is:");
+            for (int num : array) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+    }
+        `,
+        python: `
+    def counting_sort(array):
+        max_element = max(array)
+        count = [0] * (max_element + 1)
+        output = [0] * len(array)
+    
+        for num in array:
+            count[num] += 1
+    
+        for i in range(1, len(count)):
+            count[i] += count[i - 1]
+    
+        for num in reversed(array):
+            output[count[num] - 1] = num
+            count[num] -= 1
+    
+        return output
+    
+    if __name__ == "__main__":
+        n = int(input("Enter the array size: "))
+        array = [int(input(f"Enter element {i + 1}: ")) for i in range(n)]
+    
+        sorted_array = counting_sort(array)
+        print("Your Counting sorted Array is:")
+        print(" ".join(map(str, sorted_array)))
+        `,
+        javaScript: `
+    function countingSort(array) {
+        const maxElement = Math.max(...array);
+        const count = new Array(maxElement + 1).fill(0);
+        const output = new Array(array.length);
+    
+        for (let num of array) {
+            count[num]++;
+        }
+    
+        for (let i = 1; i <= maxElement; i++) {
+            count[i] += count[i - 1];
+        }
+    
+        for (let i = array.length - 1; i >= 0; i--) {
+            output[count[array[i]] - 1] = array[i];
+            count[array[i]]--;
+        }
+    
+        return output;
+    }
+    
+    const array = [];
+    const n = parseInt(prompt("Enter the array size: "));
+    for (let i = 0; i < n; i++) {
+        array.push(parseInt(prompt(\`Enter element \${i + 1}: \`)));
+    }
+    
+    console.log("Your Counting sorted Array is:");
+    console.log(countingSort(array));
+        `
+    };
+    const [activeTab, setActiveTab] = useState("cpp"); // Tracks the active tab
+    const [copied, setCopied] = useState(false); // Tracks copy status
+
+    // Copy code to clipboard
+    const handleCopy = () => {
+        navigator.clipboard.writeText(sourceCode[activeTab].trim());
+        setCopied(true);
+
+        // Reset the "Copied" state after 5 seconds
+        setTimeout(() => {
+            setCopied(false);
+        }, 5000);
+    };
+    
+
     return (
         <div className="counting-sort-visualization">
             <h3>Counting Sort Visualization</h3>
@@ -214,6 +386,86 @@ export default function CountingSort({ numbers, speed, range }) {
                         <p>{arr[index]}</p>
                     </div>
                 ))}
+            </div>
+
+
+            <div className="source_code">
+                {/* Tabs for language selection */}
+                <div className="tabs">
+                    <button
+                        onClick={() => setActiveTab("cpp")}
+                        style={{
+                            backgroundColor: activeTab === "cpp" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "cpp" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        C++
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("java")}
+                        style={{
+                            backgroundColor: activeTab === "java" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "java" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        Java
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("python")}
+                        style={{
+                            backgroundColor: activeTab === "python" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "python" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        Python
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("javaScript")}
+                        style={{
+                            backgroundColor: activeTab === "javaScript" ? "rgb(51, 255, 11)" : "blue",
+                            color: activeTab === "javaScript" ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer",
+                            marginRight: "5px"
+                        }}
+                    >
+                        JavaScript
+                    </button>
+
+                    <button
+                        className={`copybutton ${copied ? "copied" : ""}`}
+                        onClick={handleCopy}
+                        style={{
+                            backgroundColor: copied ? "rgb(51, 255, 11)" : "blue",
+                            color: copied ? "black" : "white",
+                            padding: "8px 16px",
+
+                            cursor: "pointer"
+                        }}
+                    >
+                        {copied ? "Copied!" : "Copy"}
+                    </button>
+                </div>
+
+                {/* Source code display */}
+                <pre>
+                    <code>{sourceCode[activeTab]}</code>
+                </pre>
+
+
             </div>
         </div>
     );
