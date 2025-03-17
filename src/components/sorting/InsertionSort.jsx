@@ -276,7 +276,7 @@ export default function InsertionSort({ numbers, speed, range }) {
             setCopied(false);
         }, 5000);
     };
-    
+
 
     return (
         <div className="insertion-sort-visualization">
@@ -398,6 +398,82 @@ export default function InsertionSort({ numbers, speed, range }) {
 
 
             </div>
+
+
+            <div className="sorting-content">
+                <h2>Insertion Sort Algorithm</h2>
+
+                <h3>How it Works:</h3>
+                <p>
+                    Insertion Sort is a simple comparison-based sorting algorithm that builds the sorted list one element at a time.
+                    It works by taking one element from the unsorted section and inserting it into its correct position in the sorted section.
+                </p>
+                <ol>
+                    <li>Start with the second element (index 1) as the first element is already "sorted".</li>
+                    <li>Compare it with the elements in the sorted section (left side) and shift larger elements to the right.</li>
+                    <li>Insert the selected element into its correct position.</li>
+                    <li>Repeat the process for all remaining elements.</li>
+                    <li>Continue until the entire list is sorted.</li>
+                </ol>
+
+                <h3>Example Walkthrough:</h3>
+                <p>
+                    For a list [7, 4, 5, 2, 9]:
+                </p>
+                <ol>
+                    <li>First pass (i = 1):
+                        <ul>
+                            <li>Compare 4 with 7</li>
+                            <li>4 is smaller, so shift 7 to the right → [7, 7, 5, 2, 9]</li>
+                            <li>Insert 4 at index 0 → [4, 7, 5, 2, 9]</li>
+                        </ul>
+                    </li>
+                    <li>Second pass (i = 2):
+                        <ul>
+                            <li>Compare 5 with 7</li>
+                            <li>5 is smaller, so shift 7 to the right → [4, 7, 7, 2, 9]</li>
+                            <li>Compare 5 with 4 (no shift needed)</li>
+                            <li>Insert 5 at index 1 → [4, 5, 7, 2, 9]</li>
+                        </ul>
+                    </li>
+                    <li>Third pass (i = 3):
+                        <ul>
+                            <li>Compare 2 with 7, shift 7 → [4, 5, 7, 7, 9]</li>
+                            <li>Compare 2 with 5, shift 5 → [4, 5, 5, 7, 9]</li>
+                            <li>Compare 2 with 4, shift 4 → [4, 4, 5, 7, 9]</li>
+                            <li>Insert 2 at index 0 → [2, 4, 5, 7, 9]</li>
+                        </ul>
+                    </li>
+                    <li>Fourth pass (i = 4):
+                        <ul>
+                            <li>Compare 9 with 7 (no shift needed)</li>
+                            <li>9 remains in place → [2, 4, 5, 7, 9]</li>
+                        </ul>
+                    </li>
+                    <li>Final sorted list: [2, 4, 5, 7, 9]</li>
+                </ol>
+
+                <h3>Time Complexity:</h3>
+                <ol>
+                    <li>Best Case (already sorted): <b>O(n)</b></li>
+                    <li>Average Case: <b>O(n²)</b></li>
+                    <li>Worst Case (reverse sorted): <b>O(n²)</b></li>
+                </ol>
+
+                <h3>Advantages:</h3>
+                <ol>
+                    <li>Simple to understand and implement</li>
+                    <li>Efficient for small or nearly sorted datasets</li>
+                    <li>In-place sorting with minimal memory usage</li>
+                </ol>
+
+                <h3>Disadvantages:</h3>
+                <ol>
+                    <li>Inefficient on large lists due to O(n²) time complexity</li>
+                    <li>More swaps and shifts compared to Selection Sort</li>
+                </ol>
+            </div>
+
         </div>
     );
 }

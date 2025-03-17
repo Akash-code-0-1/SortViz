@@ -441,6 +441,67 @@ export default function QuickSort({ numbers, speed, range }) {
 
 
             </div>
+
+            <div className="sorting-content">
+                <h2>Quick Sort Algorithm</h2>
+
+                <h3>How it Works:</h3>
+                <p>
+                    Quick Sort is a divide-and-conquer sorting algorithm. It works by selecting a pivot element and partitioning the array so that elements smaller than the pivot are on the left, and elements larger than the pivot are on the right. The process is then recursively applied to both partitions.
+                </p>
+                <ol>
+                    <li>Choose a pivot element (typically the last element, first element, or a random element).</li>
+                    <li>Rearrange the array so that elements smaller than the pivot are on the left, and elements larger are on the right (Partitioning step).</li>
+                    <li>Recursively apply Quick Sort to the left and right partitions.</li>
+                    <li>Repeat until the entire array is sorted.</li>
+                </ol>
+
+                <h3>Example Walkthrough:</h3>
+                <p>
+                    For a list [6, 3, 8, 5, 2]:
+                </p>
+                <ol>
+                    <li>Choose pivot: **2** (last element)</li>
+                    <ul>
+                        <li>Rearrange elements so that smaller values move left</li>
+                        <li>Partitioned array → [2, 3, 8, 5, 6]</li>
+                    </ul>
+                    <li>Recursively apply Quick Sort on left subarray [] (empty) → already sorted</li>
+                    <li>Recursively apply Quick Sort on right subarray [3, 8, 5, 6]</li>
+                    <ul>
+                        <li>Choose pivot: **6**</li>
+                        <li>Partition → [3, 5, 6, 8]</li>
+                    </ul>
+                    <li>Recursively apply Quick Sort on left subarray [3, 5] → Already sorted</li>
+                    <li>Recursively apply Quick Sort on right subarray [8] → Already sorted</li>
+                    <li>Final sorted list: [2, 3, 5, 6, 8]</li>
+                </ol>
+
+                <h3>Time Complexity:</h3>
+                <ol>
+                    <li>Best Case: <b>O(n log n)</b> (Balanced partitions)</li>
+                    <li>Average Case: <b>O(n log n)</b></li>
+                    <li>Worst Case: <b>O(n²)</b> (Unbalanced partitions, e.g., already sorted data with bad pivot selection)</li>
+                </ol>
+
+                <h3>Advantages:</h3>
+                <ol>
+                    <li>Faster than O(n²) algorithms like Selection Sort and Insertion Sort</li>
+                    <li>Efficient for large datasets</li>
+                    <li>Works well with modern processors due to cache efficiency</li>
+                </ol>
+
+                <h3>Disadvantages:</h3>
+                <ol>
+                    <li>Worst case O(n²) if pivot selection is poor</li>
+                    <li>Not a stable sort (relative order of equal elements may change)</li>
+                    <li>Requires additional memory for recursive function calls</li>
+                </ol>
+            </div>
+
+
+
+
         </div>
     );
 }

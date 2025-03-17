@@ -26,12 +26,12 @@ function Navbar({ handleToggleTheme, theme }) {
         <div className="navbar">
             <h1 className="title">Viz</h1>
 
-            <div className="menu_icon" onClick={toggleChangeIcon}>
+            {/* <div className="menu_icon" onClick={toggleChangeIcon}>
                 {isSelect ? <CloseIcon /> : <MenuIcon />}
-            </div>
+            </div> */}
             <ul className={`menu-items ${isSelect ? 'show' : ''}`}>
-                <li onClick={() => handleIconClick("/")}>Home</li>
-                <li onClick={() => handleIconClick('/sorting')}>Sorting Algorithms</li>
+                {/* <li onClick={() => handleIconClick("/")}>Home</li> */}
+                {/* <li onClick={() => handleIconClick('/sorting')}>Sorting Algorithms</li> */}
                 {/* <li onClick={() => handleIconClick('/graph')}>Graph Algorithms</li> */}
             </ul>
 

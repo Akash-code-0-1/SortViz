@@ -458,51 +458,61 @@ export default function BucketSort({ numbers, speed, range }) {
 
                 <h3>How it Works:</h3>
                 <p>
-                    Bucket Sort is a comparison-based sorting algorithm that works by distributing the elements of the list into several "buckets."
-                    Each bucket is then sorted individually, either using another sorting algorithm or by recursively applying Bucket Sort.
-                    The sorted buckets are then combined to form the sorted list.
+                    Bucket Sort is a distribution-based sorting algorithm that divides elements into multiple buckets and sorts each bucket individually. It is useful when input data is uniformly distributed over a known range.
                 </p>
                 <ol>
-                    <li>Divide the elements into different buckets based on their range.</li>
-                    <li>Sort each bucket individually.</li>
-                    <li>Concatenate the sorted buckets to form the final sorted list.</li>
+                    <li>Determine the number of buckets and their range.</li>
+                    <li>Distribute the elements into their respective buckets.</li>
+                    <li>Sort each bucket individually (using another sorting algorithm like Insertion Sort).</li>
+                    <li>Concatenate all sorted buckets to get the final sorted list.</li>
                 </ol>
 
                 <h3>Example Walkthrough:</h3>
                 <p>
-                    For a list [0.23, 0.56, 0.12, 0.43, 0.87]:
+                    For a list [0.42, 0.32, 0.23, 0.52, 0.25, 0.47, 0.51]:
                 </p>
                 <ol>
-                    <li>Step 1: Divide the list into 5 buckets based on ranges (0.0 to 0.2, 0.2 to 0.4, 0.4 to 0.6, etc.).</li>
-                    <li>Bucket 1: [0.12], Bucket 2: [0.23], Bucket 3: [0.43], Bucket 4: [0.56], Bucket 5: [0.87]</li>
-                    <li>Step 2: Sort each bucket (since each bucket has only one element, they're already sorted).</li>
-                    <li>Step 3: Concatenate the sorted buckets:
+                    <li>Divide into buckets (assuming 0-1 range, 10 buckets):
                         <ul>
-                            <li>Final sorted list: [0.12, 0.23, 0.43, 0.56, 0.87]</li>
+                            <li>Bucket 2: [0.23, 0.25]</li>
+                            <li>Bucket 3: [0.32]</li>
+                            <li>Bucket 4: [0.42, 0.47]</li>
+                            <li>Bucket 5: [0.52, 0.51]</li>
                         </ul>
                     </li>
+                    <li>Sort each bucket:
+                        <ul>
+                            <li>Bucket 2 → [0.23, 0.25]</li>
+                            <li>Bucket 3 → [0.32]</li>
+                            <li>Bucket 4 → [0.42, 0.47]</li>
+                            <li>Bucket 5 → [0.51, 0.52]</li>
+                        </ul>
+                    </li>
+                    <li>Concatenate buckets: [0.23, 0.25, 0.32, 0.42, 0.47, 0.51, 0.52]</li>
                 </ol>
 
                 <h3>Time Complexity:</h3>
                 <ol>
-                    <li>Best Case: <b>O(n + k)</b> (where n is the number of elements and k is the number of buckets)</li>
+                    <li>Best Case: <b>O(n + k)</b> (when elements are evenly distributed)</li>
                     <li>Average Case: <b>O(n + k)</b></li>
-                    <li>Worst Case: <b>O(n²)</b> (if all elements end up in a single bucket)</li>
+                    <li>Worst Case: <b>O(n²)</b> (when all elements land in the same bucket and sorting degrades)</li>
                 </ol>
 
                 <h3>Advantages:</h3>
                 <ol>
-                    <li>Works well when input is uniformly distributed over a range.</li>
-                    <li>Can be very efficient when the number of buckets is small and the data is well distributed.</li>
+                    <li>Efficient for uniformly distributed data</li>
+                    <li>Parallelizable since buckets can be processed independently</li>
+                    <li>Can achieve linear time complexity in ideal cases</li>
                 </ol>
 
                 <h3>Disadvantages:</h3>
                 <ol>
-                    <li>Not suitable for data that is not uniformly distributed.</li>
-                    <li>Requires additional memory for buckets.</li>
-                    <li>In the worst case, can degrade to O(n²) if all elements fall into the same bucket.</li>
+                    <li>Performance depends on bucket distribution</li>
+                    <li>Additional memory is required for buckets</li>
+                    <li>May degrade to O(n²) if all elements are placed in a single bucket</li>
                 </ol>
             </div>
+
 
 
 

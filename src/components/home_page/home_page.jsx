@@ -2,6 +2,8 @@ import Navbar from "../navbar/navbar";
 import '../navbar/navbar.css';
 import '../home_page/home_page.css';
 import '../footer/footer.css';
+import SortingVisualization from '../sorting/sorting_visualization';
+import '../sorting/sorting_visualization.css';
 import CustomSlider from './slider';
 import images from "../data/images";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -22,10 +24,11 @@ export default function Home_Page() {
             <div className="welcome_section">
                 <h1>Welcome to Sorting Visualizer</h1>
                 <h5>Explore, Customize, and Learn about Data Structure and Algorithms</h5>
-                <button>Let's Get Started</button>
             </div>
 
-            <div className="default_section">
+            <SortingVisualization />
+
+            {/* <div className="default_section">
                 <h1>Sorting Algorithms Visualizations</h1>
                 <p>Get started with pre-built visualizations of popular sorting algorithms  like Bubble Sort, Merge Sort, and Quick Sort.<br /> Watch them in action with real-time animations.</p>
 
@@ -37,7 +40,7 @@ export default function Home_Page() {
 
                 <button>Explore Sorting Visualizations</button>
 
-            </div>
+            </div> */}
 
             {/* <div className="default_section">
                 <h2>Graph Algorithms Visualizations</h2>
@@ -54,7 +57,7 @@ export default function Home_Page() {
             </div> */}
 
 
-            <div className="default_section">
+            {/* <div className="default_section">
                 <h1>More on Data Structure and Algorithms</h1>
                 <p>Get started with pre-built visualizations of popular sorting algorithms like Bubble Sort, Merge Sort, and Quick Sort. Watch them in action with real-time animations.</p>
 
@@ -66,7 +69,7 @@ export default function Home_Page() {
 
                 <button>Let's Learn More</button>
 
-            </div>
+            </div> */}
 
             <div className="footer">
                 <div className="social_icons">
@@ -76,18 +79,11 @@ export default function Home_Page() {
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                         <GitHubIcon />
                     </a>
-                    <a href="https://www.twitter.com">
-                        <XIcon />
-                    </a>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                        <FacebookIcon />
-                    </a>
                     <p>Dhaka, Bangladesh</p>
-                    <span></span>
-                    <p> <CopyrightIcon /> 2024 DSA Visualizer. All rights reserved.</p>
-
                 </div>
             </div>
+
+
         </div>
     );
 }

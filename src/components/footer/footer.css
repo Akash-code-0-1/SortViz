@@ -28,7 +28,7 @@
   --responsive-menuitem-bg: #19293F;
   --home-page-bg: #19293F;
   --welcome-section-bg: #19293F;
-  --welcome-section-button-bg: #FF4C29;
+  --welcome-section-button-bg: #0047e0;
   --welcome-section-button-text: #ffffff;
   --welcome-section-h3-color: #B0B0B0;
   --slider-button-bg: white;
@@ -39,28 +39,47 @@
   --navbar_hover_color: #0f1d31;
 }
 
-/* footer css */
+/* Footer Styles */
 .footer {
-  display: block;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: var(--button-bg);
+  background-color: #2563EB;
+  padding: 15px 10px;
 }
 
 .footer .social_icons {
-  margin-top: 15px;
-  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  /* Stack items on small screens */
 }
 
 .footer .social_icons a {
   color: white;
-  margin-inline-start: 5px;
+  font-size: 1.5rem;
+  /* Icon size */
   cursor: pointer;
 }
 
 .footer .social_icons p {
-  margin-top: 5px;
-  color: whitesmoke;
-  text-align: center;
+  color: var(--footer_text_color);
+  font-size: 1rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .footer .social_icons {
+    flex-direction: column;
+    /* Stack icons and text on smaller screens */
+    gap: 15px;
+  }
+
+  .footer .social_icons a {
+    font-size: 1.2rem;
+    /* Smaller icon size */
+  }
 }

@@ -85,11 +85,11 @@ export default function Sorting_Visualization() {
 
     return (
         <div className="sorting" data-theme={theme}>
-            <Navbar handleToggleTheme={toggleTheme} theme={theme} />
+           
 
             <div className="welcome_section">
-                <h1>Let's Start Sorting Visualization</h1>
-                <h4>Select your desired sorting algorithm</h4>
+                {/* <h1>Let's Start Sorting Visualization</h1> */}
+                {/* <h4>Select your desired sorting algorithm</h4> */}
                 <div className="sorting_algorithms">
                     {['Bubble Sort', 'Selection Sort', 'Insertion Sort', 'Merge Sort', 'Quick Sort', 'Heap Sort', 'Radix Sort', 'Bucket Sort', 'Counting Sort'].map((algorithm) => (
                         <button
@@ -142,13 +142,13 @@ export default function Sorting_Visualization() {
                             placeholder="Enter numbers (comma-separated)"
                             value={isRandom ? '' : numbers.join(',')}
                             onChange={handleNumberInput}
-                            style={{ display: selectedNumbersType === "Random Numbers" ? 'none' : '' }}
+                            style={{ cursor: selectedNumbersType === "Random Numbers" ? '' : '' }}
                         />
                     </div>
                     <button
                         className="final_action"
                         onClick={handleSortClick}
-                        style={{ backgroundColor: sort === true ? 'rgb(51, 255, 11)' : '#2563EB', color: sort === true ? 'black' : 'white', marginBottom:'20px' }}
+                        style={{ backgroundColor: sort === true ? 'rgb(51, 255, 11)' : '#2563EB', color: sort === true ? 'black' : 'white', marginBottom:'51px' }}
                     >
                         Sort
                     </button>

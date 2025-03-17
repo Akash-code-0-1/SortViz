@@ -556,6 +556,71 @@ export default function MergeSort({ numbers, speed, range }) {
 
 
             </div>
+
+            <div className="sorting-content">
+    <h2>Merge Sort Algorithm</h2>
+
+    <h3>How it Works:</h3>
+    <p>
+        Merge Sort is a divide-and-conquer sorting algorithm. It works by recursively dividing the array into two halves until each half has only one element. Then, it merges the sorted halves back together in a sorted manner.
+    </p>
+    <ol>
+        <li>Divide the array into two halves until each half contains a single element.</li>
+        <li>Recursively sort each half.</li>
+        <li>Merge the two sorted halves by comparing elements and placing them in order.</li>
+        <li>Repeat until the entire array is merged and sorted.</li>
+    </ol>
+
+    <h3>Example Walkthrough:</h3>
+    <p>
+        For a list [7, 3, 9, 1, 5]:
+    </p>
+    <ol>
+        <li>Divide: 
+            <ul>
+                <li>Left half: [7, 3]</li>
+                <li>Right half: [9, 1, 5]</li>
+            </ul>
+        </li>
+        <li>Recursively divide:
+            <ul>
+                <li>[7, 3] → split into [7] and [3]</li>
+                <li>[9, 1, 5] → split into [9] and [1, 5]</li>
+                <li>[1, 5] → split into [1] and [5]</li>
+            </ul>
+        </li>
+        <li>Merge step:
+            <ul>
+                <li>Merge [7] and [3] → [3, 7]</li>
+                <li>Merge [1] and [5] → [1, 5]</li>
+                <li>Merge [9] and [1, 5] → [1, 5, 9]</li>
+                <li>Merge [3, 7] and [1, 5, 9] → [1, 3, 5, 7, 9]</li>
+            </ul>
+        </li>
+        <li>Final sorted list: [1, 3, 5, 7, 9]</li>
+    </ol>
+
+    <h3>Time Complexity:</h3>
+    <ol>
+        <li>Best Case: <b>O(n log n)</b></li>
+        <li>Average Case: <b>O(n log n)</b></li>
+        <li>Worst Case: <b>O(n log n)</b></li>
+    </ol>
+
+    <h3>Advantages:</h3>
+    <ol>
+        <li>Consistently O(n log n) time complexity, making it efficient for large datasets</li>
+        <li>Stable sorting algorithm (maintains the relative order of equal elements)</li>
+        <li>Works well for linked lists since merging can be done in-place</li>
+    </ol>
+
+    <h3>Disadvantages:</h3>
+    <ol>
+        <li>Requires additional memory space (O(n)) for merging</li>
+        <li>Slower than Quick Sort in practice for most cases due to extra space usage</li>
+    </ol>
+</div>
+
         </div>
     );
 }

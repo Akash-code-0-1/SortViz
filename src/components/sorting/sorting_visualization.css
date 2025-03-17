@@ -67,9 +67,7 @@
     color: var(--footer_text_color);
 }
 
-.sorting .welcome_section {
-    margin-top: 50px;
-}
+
 
 .sorting .welcome_section h1 {
     color: white;
@@ -110,6 +108,7 @@
     display: block;
     text-align: center;
     justify-content: center;
+    /* margin-bottom: 20px; */
 }
 
 .sorting .controls h3 {

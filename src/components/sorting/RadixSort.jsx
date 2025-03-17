@@ -499,6 +499,84 @@ export default function RadixSort({ numbers, speed, range }) {
 
 
             </div>
+
+            <div className="sorting-content">
+                <h2>Radix Sort Algorithm</h2>
+
+                <h3>How it Works:</h3>
+                <p>
+                    Radix Sort is a non-comparative sorting algorithm that sorts numbers digit by digit, starting from the least significant digit (LSD) to the most significant digit (MSD).
+                    It uses a stable sub-sorting algorithm like Counting Sort to sort the numbers at each digit level.
+                </p>
+                <ol>
+                    <li>Find the maximum number in the array to determine the number of digits.</li>
+                    <li>Sort the numbers based on each digit, starting from the least significant digit.</li>
+                    <li>Use Counting Sort as a stable sorting algorithm for each digit place.</li>
+                    <li>Repeat the process for the next significant digit until all digits are sorted.</li>
+                </ol>
+
+                <h3>Example Walkthrough:</h3>
+                <p>
+                    For a list [170, 45, 75, 90, 802, 24, 2, 66]:
+                </p>
+                <ol>
+                    <li>Find max element: <b>802</b> (3 digits, so we sort by 1s, 10s, and 100s places)</li>
+
+                    <li>Sorting by the least significant digit (1s place):
+                        <ul>
+                            <li>Bucket for 0: [170, 90]</li>
+                            <li>Bucket for 2: [802, 2]</li>
+                            <li>Bucket for 4: [24]</li>
+                            <li>Bucket for 5: [75, 45]</li>
+                            <li>Bucket for 6: [66]</li>
+                        </ul>
+                        Sorted list: [802, 2, 24, 45, 75, 66, 170, 90]
+                    </li>
+
+                    <li>Sorting by the 10s place:
+                        <ul>
+                            <li>Bucket for 0: [2]</li>
+                            <li>Bucket for 2: [802, 24]</li>
+                            <li>Bucket for 4: [45]</li>
+                            <li>Bucket for 6: [66]</li>
+                            <li>Bucket for 7: [170, 75]</li>
+                            <li>Bucket for 9: [90]</li>
+                        </ul>
+                        Sorted list: [2, 802, 24, 45, 66, 75, 170, 90]
+                    </li>
+
+                    <li>Sorting by the 100s place:
+                        <ul>
+                            <li>Bucket for 0: [2, 24, 45, 66, 75, 90]</li>
+                            <li>Bucket for 1: [170]</li>
+                            <li>Bucket for 8: [802]</li>
+                        </ul>
+                        Final sorted list: [2, 24, 45, 66, 75, 90, 170, 802]
+                    </li>
+                </ol>
+
+                <h3>Time Complexity:</h3>
+                <ol>
+                    <li>Best Case: <b>O(nk)</b></li>
+                    <li>Average Case: <b>O(nk)</b></li>
+                    <li>Worst Case: <b>O(nk)</b></li>
+                </ol>
+
+                <h3>Advantages:</h3>
+                <ol>
+                    <li>Fast for numbers with a small range of digits</li>
+                    <li>Stable sorting algorithm</li>
+                    <li>Performs better than comparison-based sorting for large lists with small digits</li>
+                </ol>
+
+                <h3>Disadvantages:</h3>
+                <ol>
+                    <li>Not suitable for large-digit numbers</li>
+                    <li>Requires extra space for bucket storage</li>
+                    <li>Only works for numbers (or fixed-length strings)</li>
+                </ol>
+            </div>
+
         </div>
     );
 }

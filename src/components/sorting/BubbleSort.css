@@ -81,23 +81,28 @@
 }
 
 .array-bar {
-    margin: 0 1px;
+    margin: 0 2px;
     background-color: #3498db;
     transition: height 0.3s ease, background-color 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     color: rgb(0, 0, 0);
-    font-size: clamp(0px, 1vw, 10px);
+    font-size: clamp(1px, 1vw, 10px);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 
-.array-bar p {
+.array-bar .index {
     display: flex;
     position: relative;
-    top: 10px;
+    top: 14px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: white;
 }
+
+
 
 .array-bar.sorted {
     background-color: #2ecc71;

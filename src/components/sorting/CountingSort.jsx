@@ -348,13 +348,13 @@ export default function CountingSort({ numbers, speed, range }) {
             setCopied(false);
         }, 5000);
     };
-    
+
 
     return (
         <div className="counting-sort-visualization">
             <h3>Counting Sort Visualization</h3>
             <div className="explanation">
-                <pre>{explanation}</pre>
+                <p>{explanation}</p>
             </div>
             <div className="user_controls">
                 <button onClick={handlePreviousStep} disabled={currentStep === 0}>
@@ -376,6 +376,7 @@ export default function CountingSort({ numbers, speed, range }) {
                         key={index}
                         className={`array-bar ${highlightIndices.includes(index) ? 'highlight' : ''}`}
                         style={{
+                            marginBottom:'5px',
                             height: `${value}%`,
                             width: barWidth,
                             backgroundColor: highlightIndices.includes(index)
@@ -383,7 +384,12 @@ export default function CountingSort({ numbers, speed, range }) {
                                 : 'blue',
                         }}
                     >
-                        <p>{arr[index]}</p>
+                        <p 
+                        style={{
+                            marginTop: '10px',
+                            
+                        }}
+                        >{arr[index]}</p>
                     </div>
                 ))}
             </div>
@@ -467,6 +473,75 @@ export default function CountingSort({ numbers, speed, range }) {
 
 
             </div>
+
+            <div className="sorting-content">
+                <h2>Counting Sort Algorithm</h2>
+
+                <h3>How it Works:</h3>
+                <p>
+                    Counting Sort is a non-comparison-based sorting algorithm that sorts integers by counting the occurrences of each unique value. It works well for small ranges of integers but is inefficient for large ranges.
+                </p>
+                <ol>
+                    <li>Find the maximum value in the array to determine the range.</li>
+                    <li>Initialize a count array of size (max + 1) with all values set to zero.</li>
+                    <li>Count the occurrences of each element and store them in the count array.</li>
+                    <li>Compute the cumulative sum of the count array.</li>
+                    <li>Place elements into their correct positions in the output array.</li>
+                    <li>Copy the sorted elements back to the original array.</li>
+                </ol>
+
+                <h3>Example Walkthrough:</h3>
+                <p>
+                    For a list [4, 2, 2, 8, 3, 3, 1]:
+                </p>
+                <ol>
+                    <li>Find max element: <b>8</b></li>
+                    <li>Initialize count array (size 9) → [0, 0, 0, 0, 0, 0, 0, 0, 0]</li>
+                    <li>Count occurrences:
+                        <ul>
+                            <li>1 appears once → count[1] = 1</li>
+                            <li>2 appears twice → count[2] = 2</li>
+                            <li>3 appears twice → count[3] = 2</li>
+                            <li>4 appears once → count[4] = 1</li>
+                            <li>8 appears once → count[8] = 1</li>
+                        </ul>
+                    </li>
+                    <li>Count array → [0, 1, 2, 2, 1, 0, 0, 0, 1]</li>
+                    <li>Compute cumulative count:
+                        <ul>
+                            <li>count[1] = 1</li>
+                            <li>count[2] = 3</li>
+                            <li>count[3] = 5</li>
+                            <li>count[4] = 6</li>
+                            <li>count[8] = 7</li>
+                        </ul>
+                    </li>
+                    <li>Place elements in the correct order → [1, 2, 2, 3, 3, 4, 8]</li>
+                    <li>Final sorted list: [1, 2, 2, 3, 3, 4, 8]</li>
+                </ol>
+
+                <h3>Time Complexity:</h3>
+                <ol>
+                    <li>Best Case: <b>O(n + k)</b></li>
+                    <li>Average Case: <b>O(n + k)</b></li>
+                    <li>Worst Case: <b>O(n + k)</b></li>
+                </ol>
+
+                <h3>Advantages:</h3>
+                <ol>
+                    <li>Fast for small integer ranges</li>
+                    <li>Stable sorting algorithm</li>
+                    <li>Works in O(n) time when k (range of numbers) is small</li>
+                </ol>
+
+                <h3>Disadvantages:</h3>
+                <ol>
+                    <li>Not suitable for large integer ranges (high memory usage)</li>
+                    <li>Only works for integer values</li>
+                    <li>Not an in-place sorting algorithm (requires additional storage)</li>
+                </ol>
+            </div>
+
         </div>
     );
 }
