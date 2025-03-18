@@ -416,7 +416,7 @@ export default function RadixSort({ numbers, speed, range }) {
                                 : 'blue',
                         }}
                     >
-                        <p>{arr[index]}</p>
+                        <p className='index'>{arr[index]}</p>
                     </div>
                 ))}
             </div>

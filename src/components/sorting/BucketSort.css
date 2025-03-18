@@ -31,11 +31,13 @@
     height: fit-content;
     width: 100%;
 }
-.bucket-sort-visualization .explanation p{
+
+.bucket-sort-visualization .explanation p {
     display: flex;
     text-align: center;
     justify-content: center;
     font-size: 14px;
+    color: black;
 }
 
 .user_controls {
@@ -90,6 +92,15 @@
     font-size: clamp(0px, 1vw, 10px);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+}
+
+.array-bar .index {
+    display: flex;
+    position: relative;
+    top: 14px;
+    font-size: 12px;
+    font: bold;
+    color: black;
 }
 
 .array-bar p {

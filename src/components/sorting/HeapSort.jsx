@@ -384,7 +384,7 @@ export default function HeapSort({ numbers, speed, range }) {
             setCopied(false);
         }, 5000);
     };
-    
+
 
     return (
         <div className="heap-sort-visualization">
@@ -419,7 +419,8 @@ export default function HeapSort({ numbers, speed, range }) {
                                 : 'blue',
                         }}
                     >
-                        <p>{arr[index]}</p>
+                        <p className='index'>{arr[index]}</p>
+
                     </div>
                 ))}
             </div>
@@ -504,59 +505,59 @@ export default function HeapSort({ numbers, speed, range }) {
             </div>
 
             <div className="sorting-content">
-    <h2>Heap Sort Algorithm</h2>
+                <h2>Heap Sort Algorithm</h2>
 
-    <h3>How it Works:</h3>
-    <p>
-        Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It works by first building a max heap from the given array, then repeatedly extracting the largest element (the root of the heap) and placing it at the end of the sorted section.
-    </p>
-    <ol>
-        <li>Build a max heap from the given array.</li>
-        <li>Swap the root (largest element) with the last element of the heap.</li>
-        <li>Reduce the heap size and heapify the root to restore the heap property.</li>
-        <li>Repeat the process until all elements are sorted.</li>
-    </ol>
+                <h3>How it Works:</h3>
+                <p>
+                    Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It works by first building a max heap from the given array, then repeatedly extracting the largest element (the root of the heap) and placing it at the end of the sorted section.
+                </p>
+                <ol>
+                    <li>Build a max heap from the given array.</li>
+                    <li>Swap the root (largest element) with the last element of the heap.</li>
+                    <li>Reduce the heap size and heapify the root to restore the heap property.</li>
+                    <li>Repeat the process until all elements are sorted.</li>
+                </ol>
 
-    <h3>Example Walkthrough:</h3>
-    <p>
-        For a list [4, 10, 3, 5, 1]:
-    </p>
-    <ol>
-        <li>Build a max heap:
-            <ul>
-                <li>Heapify the array → [10, 5, 3, 4, 1]</li>
-            </ul>
-        </li>
-        <li>Swap max element (10) with last element → [1, 5, 3, 4, 10]</li>
-        <li>Heapify again → [5, 4, 3, 1, 10]</li>
-        <li>Swap max element (5) with last unsorted element → [1, 4, 3, 5, 10]</li>
-        <li>Heapify again → [4, 1, 3, 5, 10]</li>
-        <li>Swap max element (4) with last unsorted element → [1, 3, 4, 5, 10]</li>
-        <li>Heapify again → [3, 1, 4, 5, 10]</li>
-        <li>Swap max element (3) with last unsorted element → [1, 3, 4, 5, 10]</li>
-        <li>Final sorted list: [1, 3, 4, 5, 10]</li>
-    </ol>
+                <h3>Example Walkthrough:</h3>
+                <p>
+                    For a list [4, 10, 3, 5, 1]:
+                </p>
+                <ol>
+                    <li>Build a max heap:
+                        <ul>
+                            <li>Heapify the array → [10, 5, 3, 4, 1]</li>
+                        </ul>
+                    </li>
+                    <li>Swap max element (10) with last element → [1, 5, 3, 4, 10]</li>
+                    <li>Heapify again → [5, 4, 3, 1, 10]</li>
+                    <li>Swap max element (5) with last unsorted element → [1, 4, 3, 5, 10]</li>
+                    <li>Heapify again → [4, 1, 3, 5, 10]</li>
+                    <li>Swap max element (4) with last unsorted element → [1, 3, 4, 5, 10]</li>
+                    <li>Heapify again → [3, 1, 4, 5, 10]</li>
+                    <li>Swap max element (3) with last unsorted element → [1, 3, 4, 5, 10]</li>
+                    <li>Final sorted list: [1, 3, 4, 5, 10]</li>
+                </ol>
 
-    <h3>Time Complexity:</h3>
-    <ol>
-        <li>Best Case: <b>O(n log n)</b></li>
-        <li>Average Case: <b>O(n log n)</b></li>
-        <li>Worst Case: <b>O(n log n)</b></li>
-    </ol>
+                <h3>Time Complexity:</h3>
+                <ol>
+                    <li>Best Case: <b>O(n log n)</b></li>
+                    <li>Average Case: <b>O(n log n)</b></li>
+                    <li>Worst Case: <b>O(n log n)</b></li>
+                </ol>
 
-    <h3>Advantages:</h3>
-    <ol>
-        <li>In-place sorting algorithm (no extra memory needed apart from the input array)</li>
-        <li>Consistently O(n log n) time complexity, unlike Quick Sort which can degrade to O(n²)</li>
-        <li>Efficient for large datasets</li>
-    </ol>
+                <h3>Advantages:</h3>
+                <ol>
+                    <li>In-place sorting algorithm (no extra memory needed apart from the input array)</li>
+                    <li>Consistently O(n log n) time complexity, unlike Quick Sort which can degrade to O(n²)</li>
+                    <li>Efficient for large datasets</li>
+                </ol>
 
-    <h3>Disadvantages:</h3>
-    <ol>
-        <li>Not a stable sort (relative order of equal elements may change)</li>
-        <li>Heap operations can have a higher constant factor than Quick Sort, making it slightly slower in practice</li>
-    </ol>
-</div>
+                <h3>Disadvantages:</h3>
+                <ol>
+                    <li>Not a stable sort (relative order of equal elements may change)</li>
+                    <li>Heap operations can have a higher constant factor than Quick Sort, making it slightly slower in practice</li>
+                </ol>
+            </div>
 
         </div>
     );

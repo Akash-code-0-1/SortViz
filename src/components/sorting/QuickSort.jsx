@@ -358,7 +358,7 @@ export default function QuickSort({ numbers, speed, range }) {
                                 : 'blue',
                         }}
                     >
-                        <p>{arr[index]}</p>
+                     <p className='index'>{arr[index]}</p>
                     </div>
                 ))}
             </div>

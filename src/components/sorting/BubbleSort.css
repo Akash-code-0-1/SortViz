@@ -37,6 +37,7 @@
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
+    color: black;
 }
 
 .user_controls {
@@ -69,7 +70,6 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    height: 500px;
     width: 100%;
     max-width: 100%;
     background-color: #fff;
@@ -78,6 +78,8 @@
     padding: 10px;
     box-sizing: border-box;
     overflow: hidden;
+
+
 }
 
 .array-bar {
@@ -96,10 +98,10 @@
 .array-bar .index {
     display: flex;
     position: relative;
-    top: 14px;
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: white;
+    top: 12px;
+    font-size: 11px;
+    font: bold;
+    color: black;
 }
 
 

@@ -384,12 +384,8 @@ export default function CountingSort({ numbers, speed, range }) {
                                 : 'blue',
                         }}
                     >
-                        <p 
-                        style={{
-                            marginTop: '10px',
-                            
-                        }}
-                        >{arr[index]}</p>
+                        <p className='index'>{arr[index]}</p>
+
                     </div>
                 ))}
             </div>

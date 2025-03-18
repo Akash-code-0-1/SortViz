@@ -84,6 +84,14 @@
    border-top-left-radius: 5px;
    border-top-right-radius: 5px;
 }
+.array-bar .index {
+   display: flex;
+   position: relative;
+   top: 14px;
+   font-size: 12px;
+   font: bold;
+   color: black;
+}
 
 .array-bar p {
    display: flex;

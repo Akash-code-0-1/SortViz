@@ -355,8 +355,7 @@ export default function BubbleSort({ numbers, speed, range }) {
                         style={{
                             backgroundColor: activeTab === "cpp" ? "rgb(51, 255, 11)" : "blue",
                             color: activeTab === "cpp" ? "black" : "white",
-                            padding: "8px 16px",
-
+                            padding: "8px 6px ",
                             cursor: "pointer",
                             marginRight: "5px"
                         }}
@@ -368,8 +367,7 @@ export default function BubbleSort({ numbers, speed, range }) {
                         style={{
                             backgroundColor: activeTab === "java" ? "rgb(51, 255, 11)" : "blue",
                             color: activeTab === "java" ? "black" : "white",
-                            padding: "8px 16px",
-
+                            padding: "8px 6px ",
                             cursor: "pointer",
                             marginRight: "5px"
                         }}
@@ -381,8 +379,7 @@ export default function BubbleSort({ numbers, speed, range }) {
                         style={{
                             backgroundColor: activeTab === "python" ? "rgb(51, 255, 11)" : "blue",
                             color: activeTab === "python" ? "black" : "white",
-                            padding: "8px 16px",
-
+                            padding: "8px 6px ",
                             cursor: "pointer",
                             marginRight: "5px"
                         }}
@@ -394,8 +391,7 @@ export default function BubbleSort({ numbers, speed, range }) {
                         style={{
                             backgroundColor: activeTab === "javaScript" ? "rgb(51, 255, 11)" : "blue",
                             color: activeTab === "javaScript" ? "black" : "white",
-                            padding: "8px 16px",
-
+                            padding: "8px 6px ",
                             cursor: "pointer",
                             marginRight: "5px"
                         }}
@@ -409,8 +405,9 @@ export default function BubbleSort({ numbers, speed, range }) {
                         style={{
                             backgroundColor: copied ? "rgb(51, 255, 11)" : "blue",
                             color: copied ? "black" : "white",
-                            padding: "8px 16px",
-
+                            padding: "8px 6px ",
+                            marginRight: '15px',
+                            marginTop: '15px',
                             cursor: "pointer"
                         }}
                     >

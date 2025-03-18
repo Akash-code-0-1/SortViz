@@ -315,7 +315,8 @@ export default function InsertionSort({ numbers, speed, range }) {
                                     : 'blue',
                         }}
                     >
-                        <p>{arr[index]}</p>
+                        <p className='index'>{arr[index]}</p>
+
                     </div>
                 ))}
             </div>
