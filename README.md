@@ -1,8 +1,7 @@
 
 
-### **README.md**  
+### **README.md** 
 
-```md
 # Sorting Algorithm Visualizer 🎨📊
 
 Sorting Algorithm Visualizer is a **React.js** web application that visually demonstrates various sorting algorithms in action. This project helps users understand how different sorting techniques work through **real-time animations, comparisons, and step-by-step visualizations**.  
@@ -11,9 +10,10 @@ Sorting Algorithm Visualizer is a **React.js** web application that visually dem
 
 ## 📸 Screenshots
 
-![image alt](https://github.com/Akash-code-0-1/SortViz/blob/main/1.PNG?raw=true)
-![](https://raw.githubusercontent.com/Akash-code-0-1/SortViz/main/src/components/assets/2.PNG)
-![](https://raw.githubusercontent.com/Akash-code-0-1/SortViz/main/src/components/assets/3.PNG)
+![](https://github.com/Akash-code-0-1/SortViz/blob/c292f5f4828488928ae664b494cb88732b9adc56/image.png)
+![](https://github.com/Akash-code-0-1/SortViz/blob/9ebbcb91ba7d773c0d8e0d802e2c5b99730f6898/2.PNG)
+![](https://github.com/Akash-code-0-1/SortViz/blob/9ebbcb91ba7d773c0d8e0d802e2c5b99730f6898/3.PNG)
+
 
 
 
@@ -95,7 +95,7 @@ This project is licensed under the **MIT License** – you’re free to use, mod
 ## 📬 Contact  
 
 👨‍💻 **Developer:** Your Name  
-📧 **Email:** your.email@example.com  
+📧 **Email:** tanvir0ah0akash@gmail.com  
 🌐 **GitHub:** [Akash-code-0-1](https://github.com/Akash-code-0-1)  
 💼 **LinkedIn:** [MD. Tanvir Ahmed Akash](https://www.linkedin.com/in/md-tanvir-ahmed-akash-8ba50b2b9/)  
 
