@@ -11,7 +11,7 @@ Sorting Algorithm Visualizer is a **React.js** web application that visually dem
 
 ## 📸 Screenshots
 
-![alt text](image.png)
+![App Screenshot](https://raw.githubusercontent.com/your-username/your-repo/main/assets/screenshot.png)
 
 ---
 
@@ -40,12 +40,12 @@ Follow these steps to set up the project on your local machine:
 
 1️⃣ **Clone the Repository**  
 ```sh
-git clone https://github.com/your-username/sorting-visualizer.git
+git clone https://github.com/Akash-code-0-1/SortViz.git
 ```
 
 2️⃣ **Navigate to the Project Directory**  
 ```sh
-cd sorting-visualizer
+cd viz
 ```
 
 3️⃣ **Install Dependencies**  
@@ -92,8 +92,8 @@ This project is licensed under the **MIT License** – you’re free to use, mod
 
 👨‍💻 **Developer:** Your Name  
 📧 **Email:** your.email@example.com  
-🌐 **GitHub:** [your-username](https://github.com/your-username)  
-💼 **LinkedIn:** [your-linkedin](https://linkedin.com/in/your-profile)  
+🌐 **GitHub:** [Akash-code-0-1](https://github.com/Akash-code-0-1)  
+💼 **LinkedIn:** [MD. Tanvir Ahmed Akash](https://www.linkedin.com/in/md-tanvir-ahmed-akash-8ba50b2b9/)  
 
 ---
 
