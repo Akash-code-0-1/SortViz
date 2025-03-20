@@ -23,7 +23,7 @@ export default function Home_Page() {
 
             <div className="welcome_section">
                 <h1>Welcome to Sorting Visualizer</h1>
-                <h5>Explore, Customize, and Learn about Data Structure and Algorithms</h5>
+                <h5>Explore, Customize, and Learn about Sorting Algorithms</h5>
             </div>
 
             <SortingVisualization />
@@ -73,10 +73,10 @@ export default function Home_Page() {
 
             <div className="footer">
                 <div className="social_icons">
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/md-tanvir-ahmed-akash-8ba50b2b9/" target="_blank" rel="noopener noreferrer">
                         <LinkedInIcon />
                     </a>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/Akash-code-0-1?tab=overview&from=2025-03-01&to=2025-03-17" target="_blank" rel="noopener noreferrer">
                         <GitHubIcon />
                     </a>
                     <p>Dhaka, Bangladesh</p>
