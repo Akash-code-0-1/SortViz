@@ -1,8 +1,6 @@
-
-
-### **README.md** 
-
 # Sorting Algorithm Visualizer 🎨📊
+
+**Live Link:** [Viz](https://sortingvisualizer-six.vercel.app/)  
 
 Sorting Algorithm Visualizer is a **React.js** web application that visually demonstrates various sorting algorithms in action. This project helps users understand how different sorting techniques work through **real-time animations, comparisons, and step-by-step visualizations**.  
 
