@@ -11,9 +11,10 @@ Sorting Algorithm Visualizer is a **React.js** web application that visually dem
 
 ## 📸 Screenshots
 
-![App Screenshots](https://github.com/Akash-code-0-1/SortViz/blob/main/src/components/assets/1.PNG)
-![](https://github.com/Akash-code-0-1/SortViz/blob/main/src/components/assets/2.PNG)
-![](https://github.com/Akash-code-0-1/SortViz/blob/main/src/components/assets/3.PNG)
+![App Screenshots](https://raw.githubusercontent.com/Akash-code-0-1/SortViz/main/src/components/assets/1.PNG)
+![](https://raw.githubusercontent.com/Akash-code-0-1/SortViz/main/src/components/assets/2.PNG)
+![](https://raw.githubusercontent.com/Akash-code-0-1/SortViz/main/src/components/assets/3.PNG)
+
 
 
 ---
