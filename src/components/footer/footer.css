@@ -66,14 +66,14 @@
 }
 
 .footer .social_icons p {
-  color: var(--footer_text_color);
+  color: white;
   font-size: 1rem;
 }
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .footer .social_icons {
-    flex-direction: column;
+    flex-direction: row;
     /* Stack icons and text on smaller screens */
     gap: 15px;
   }
