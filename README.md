@@ -96,7 +96,7 @@ This project is licensed under the **MIT License** – you’re free to use, mod
 
 ## 📬 Contact  
 
-👨‍💻 **Developer:** Your Name  
+👨‍💻 **Developer:** MD.Tanvir Ahmed Akash  
 📧 **Email:** tanvir0ah0akash@gmail.com  
 🌐 **GitHub:** [Akash-code-0-1](https://github.com/Akash-code-0-1)  
 💼 **LinkedIn:** [MD. Tanvir Ahmed Akash](https://www.linkedin.com/in/md-tanvir-ahmed-akash-8ba50b2b9/)  
